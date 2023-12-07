@@ -2,7 +2,7 @@ Hard 3 question:Given an integer n, count the total number of digit 1 appearing 
 logic:
 1.Initialization:
    Initialize a variable count to keep track of the total number of digit 1 occurrences.
-   Initialize a variable factor to 1 to represent the current digit place (1s, 10s, 100s, ...).
+   Initialize a variable factor to 1 to represent the current digit place.
 2.Digit-wise Iteration:
   Iterate through each digit place in the number n.
   Calculate higher, current_digit, and lower for the current digit place.
