@@ -1,4 +1,12 @@
 EASY_1 question:Given a string s consisting of words and spaces, return the length of the last word in the string.A word is a maximal substring consisting of non-space characters only.
+
+logic:
+1.Splitting the string into words: The split method is used as it efficiently separates the string into individual words based on the provided delimiter (whitespace in this case). This simplifies further processing by focusing only on words.
+2.Checking the presence of words: We need to ensure the string actually contains words before proceeding. If the "words" list is empty, it implies there are no words in the string, and we immediately return 0 as the length.
+3.Getting the last word: We access the last element of the "words" list using negative indexing (-1). This effectively retrieves the last word in the string.
+4.Determining the length of the last word: The len function is used to count the number of characters in the last word obtained in step 3.
+5.Returning the length: Finally, we return the calculated length of the last word as the desired output.
+
 Alogrithm:
 Input: A string s consisting of words and spaces.
 Output: The length of the last word in the string.
@@ -17,6 +25,7 @@ Append the current word to the words list.
 If it is empty, return 0.
 5.Get the last word: last_word = words[-1]
 6.Return the length of the last word: len(last_word)
+
 code:
 def length_of_last_word(s):
     words = s.split()
@@ -31,10 +40,3 @@ while True:
    
 result = length_of_last_word(s)
 print(result)
-logic:
-1.Splitting the string into words: The split method is used as it efficiently separates the string into individual words based on the provided delimiter (whitespace in this case). This simplifies further processing by focusing only on words.
-2.Checking the presence of words: We need to ensure the string actually contains words before proceeding. If the "words" list is empty, it implies there are no words in the string, and we immediately return 0 as the length.
-3.Getting the last word: We access the last element of the "words" list using negative indexing (-1). This effectively retrieves the last word in the string.
-4.Determining the length of the last word: The len function is used to count the number of characters in the last word obtained in step 3.
-5.Returning the length: Finally, we return the calculated length of the last word as the desired output.
-
