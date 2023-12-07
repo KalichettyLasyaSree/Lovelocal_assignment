@@ -1,0 +1,59 @@
+Hard 3 question:Given an integer n, count the total number of digit 1 appearing in all non-negative integers less than or equal to n.
+logic:
+1.Initialization:
+   Initialize a variable count to keep track of the total number of digit 1 occurrences.
+   Initialize a variable factor to 1 to represent the current digit place (1s, 10s, 100s, ...).
+2.Digit-wise Iteration:
+  Iterate through each digit place in the number n.
+  Calculate higher, current_digit, and lower for the current digit place.
+3.Counting Digit 1:
+  If current_digit is 0, add higher * factor to the count.
+  If current_digit is 1, add (higher * factor) + lower + 1 to the count.
+  If current_digit is greater than 1, add (higher + 1) * factor to the count.
+4.Update Factor:
+  Multiply factor by 10 to move to the next digit place.
+5.Update Current:
+  Update the value of current by dividing n by the updated factor.
+6.Repeat Until All Digits Processed:
+  Repeat the process until all digits in n have been processed.
+7.Return Count:
+  Return the final count.
+
+algortithm:
+1.Steps:Initialize count and factor to 1.
+   Initialize current as n // factor.
+   Enter a while loop while current > 0:
+   Calculate higher, current_digit, and lower.
+   Update count based on the rules described in the logic.
+   Update factor and current for the next iteration.
+   Return the final count.
+2.User Input and Function Call:
+Accept user input for the integer n.
+Call the count_digit_one function with the input integer.
+3.Print Result:
+Print the total number of digit 1 occurrences in all non-negative integers less than or equal to n.
+
+code:
+def count_digit_one(n):
+    count = 0
+    factor = 1
+    current = n // factor
+
+    while current > 0:
+        higher = n // (factor * 10)
+        current_digit = current % 10
+        lower = n - (current * factor)
+
+        if current_digit == 0:
+            count += higher * factor
+        elif current_digit == 1:
+            count += higher * factor + lower + 1
+        else:
+            count += (higher + 1) * factor
+        factor *= 10
+        current = n // factor
+    return count
+n = int(input())
+if 0 <= n <= 109:
+    result = count_digit_one(n)
+    print(result)
