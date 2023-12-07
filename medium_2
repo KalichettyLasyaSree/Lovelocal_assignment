@@ -1,0 +1,50 @@
+Medium-2: question Given an integer array of size n, find all elements that appear more than ⌊ n/3 ⌋ times.
+
+logic:
+1.Frequency Count:
+    Use a dictionary (frequency_map) to store the frequency of each element in the input array nums.
+    Iterate through each element in nums.
+    Update the frequency in the dictionary.
+    Threshold Calculation:
+2.Calculate the threshold as ⌊ n/3 ⌋, where n is the length of the input array nums.
+3.Identify Majority Elements:
+     Iterate through the items in frequency_map.
+     If the count of any element is greater than the threshold, add it to the result set.
+4.Return the result set as a list.
+
+Algorithm:
+1.Initialize the length of nums as n.
+   Calculate the threshold as ⌊ n/3 ⌋.
+   Initialize an empty dictionary frequency_map and an empty set result.
+   Iterate through each element in nums:
+   Update the frequency in frequency_map.
+   Iterate through the items in frequency_map:
+   If the count is greater than the threshold, add the element to the result set.
+  Return the result set as a list.
+2.User Input and Function Call:
+   Accept user input for the array (user_input).
+   Convert the input to a list of integers (nums).
+  Call the majority_elements function with the input array.
+3.Print Result:
+   Print the elements appearing more than ⌊ n/3 ⌋ times.
+
+code:
+def majority_elements(nums):
+    n = len(nums)
+    threshold = n // 3
+    frequency_map = {}
+    result = set()
+  
+    for num in nums:
+        frequency_map[num] = frequency_map.get(num, 0) + 1
+  
+    for num, count in frequency_map.items():
+        if count > threshold:
+            result.add(num)
+
+    return list(result)
+
+user_input = input()
+nums = list(map(int, user_input.strip('[]').split(',')))
+output = majority_elements(nums)
+print("Elements appearing more than n/3 times:", output)
